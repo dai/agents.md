@@ -4,48 +4,46 @@
   <img src="https://agents.md/og.png">
 </p>
 
-[AGENTS.md](https://agents.md) is a simple, open format for guiding coding agents.
+[AGENTS.md](https://agents.md)は、コーディングエージェントをガイドするためのシンプルでオープンなフォーマットです。
 
-Think of AGENTS.md as a README for agents: a dedicated, predictable place
-to provide context and instructions to help AI coding agents work on your project.
+AGENTS.mdをエージェントのためのREADMEと考えてください：AIコーディングエージェントがあなたのプロジェクトで作業するのを助けるため、コンテキストと指示を提供する専用の、予測可能な場所です。
 
-Below is a minimal example of an AGENTS.md file:
+以下はAGENTS.mdファイルの最小限の例です：
 
 ```markdown
-# Sample AGENTS.md file
+# サンプル AGENTS.md ファイル
 
-## Dev environment tips
-- Use `pnpm dlx turbo run where <project_name>` to jump to a package instead of scanning with `ls`.
-- Run `pnpm install --filter <project_name>` to add the package to your workspace so Vite, ESLint, and TypeScript can see it.
-- Use `pnpm create vite@latest <project_name> -- --template react-ts` to spin up a new React + Vite package with TypeScript checks ready.
-- Check the name field inside each package's package.json to confirm the right name—skip the top-level one.
+## 開発環境のヒント
+- `ls`でスキャンする代わりに、`pnpm dlx turbo run where <project_name>`を使用してパッケージにジャンプしてください。
+- `pnpm install --filter <project_name>`を実行して、パッケージをワークスペースに追加し、Vite、ESLint、TypeScriptが認識できるようにしてください。
+- `pnpm create vite@latest <project_name> -- --template react-ts`を使用して、TypeScriptチェック付きの新しいReact + Viteパッケージを立ち上げてください。
+- 正しい名前を確認するために、各パッケージのpackage.json内のnameフィールドを確認してください—トップレベルのものはスキップしてください。
 
-## Testing instructions
-- Find the CI plan in the .github/workflows folder.
-- Run `pnpm turbo run test --filter <project_name>` to run every check defined for that package.
-- From the package root you can just call `pnpm test`. The commit should pass all tests before you merge.
-- To focus on one step, add the Vitest pattern: `pnpm vitest run -t "<test name>"`.
-- Fix any test or type errors until the whole suite is green.
-- After moving files or changing imports, run `pnpm lint --filter <project_name>` to be sure ESLint and TypeScript rules still pass.
-- Add or update tests for the code you change, even if nobody asked.
+## テスト手順
+- .github/workflowsフォルダ内のCIプランを確認してください。
+- `pnpm turbo run test --filter <project_name>`を実行して、そのパッケージに定義されたすべてのチェックを実行してください。
+- パッケージルートからは`pnpm test`を呼び出すだけです。マージする前にコミットはすべてのテストに合格する必要があります。
+- 1つのステップに集中するには、Vitestパターンを追加してください：`pnpm vitest run -t "<test name>"`。
+- スイート全体が緑になるまで、テストまたは型エラーを修正してください。
+- ファイルを移動したり、インポートを変更した後は、`pnpm lint --filter <project_name>`を実行して、ESLintとTypeScriptルールがまだ通ることを確認してください。
+- 誰も頼まなくても、変更したコードのテストを追加または更新してください。
 
-## PR instructions
-- Title format: [<project_name>] <Title>
-- Always run `pnpm lint` and `pnpm test` before committing.
+## PR手順
+- タイトル形式：[<project_name>] <Title>
+- コミットする前に常に`pnpm lint`と`pnpm test`を実行してください。
 ```
 
-## Website
+## ウェブサイト
 
-This repository also includes a basic Next.js website hosted at https://agents.md/
-that explains the project’s goals in a simple way, and featuring some examples.
+このリポジトリには、プロジェクトの目標をシンプルに説明し、いくつかの例を紹介するhttps://agents.md/でホストされている基本的なNext.jsウェブサイトも含まれています。
 
-### Running the app locally
-1. Install dependencies:
+### アプリをローカルで実行する
+1. 依存関係をインストール：
    ```bash
    npm install
    ```
-2. Start the development server:
+2. 開発サーバーを起動：
    ```bash
    npm run dev
    ```
-3. Open your browser and go to http://localhost:3000
+3. ブラウザを開いてhttp://localhost:3000にアクセス
