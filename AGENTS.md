@@ -1,43 +1,36 @@
-# AGENTS Guidelines for This Repository
+# このリポジトリのAGENTSガイドライン
 
-This repository contains a Next.js application located in the root of this repository. When
-working on the project interactively with an agent (e.g. the Codex CLI) please follow
-the guidelines below so that the development experience – in particular Hot Module
-Replacement (HMR) – continues to work smoothly.
+このリポジトリには、ルートディレクトリにNext.jsアプリケーションが含まれています。
+エージェント（例：Codex CLI）と対話的にプロジェクトで作業する場合は、
+開発体験、特にホットモジュールリプレイスメント（HMR）がスムーズに機能し続けるように、
+以下のガイドラインに従ってください。
 
-## 1. Use the Development Server, **not** `npm run build`
+## 1. 開発サーバーを使用し、`npm run build`は使用しない
 
-* **Always use `npm run dev` (or `pnpm dev`, `yarn dev`, etc.)** while iterating on the
-  application.  This starts Next.js in development mode with hot-reload enabled.
-* **Do _not_ run `npm run build` inside the agent session.**  Running the production
-  build command switches the `.next` folder to production assets which disables hot
-  reload and can leave the development server in an inconsistent state.  If a
-  production build is required, do it outside of the interactive agent workflow.
+*   アプリケーションを繰り返し開発する間は、**常に `npm run dev`（または `pnpm dev`、`yarn dev`など）を使用してください。** これにより、ホットリロードが有効な開発モードでNext.jsが起動します。
+*   **エージェントセッション内で `npm run build` を実行しないでください。** 本番ビルドコマンドを実行すると、`.next` フォルダが本番アセットに切り替わり、ホットリロードが無効になり、開発サーバーが不安定な状態になる可能性があります。本番ビルドが必要な場合は、対話型エージェントのワークフロー外で実行してください。
 
-## 2. Keep Dependencies in Sync
+## 2. 依存関係を同期させる
 
-If you add or update dependencies remember to:
+依存関係を追加または更新した場合は、次のことを忘れないでください。
 
-1. Update the appropriate lockfile (`package-lock.json`, `pnpm-lock.yaml`, `yarn.lock`).
-2. Re-start the development server so that Next.js picks up the changes.
+1.  適切なロックファイル（`package-lock.json`、`pnpm-lock.yaml`、`yarn.lock`）を更新します。
+2.  Next.jsが変更を検出できるように、開発サーバーを再起動します。
 
-## 3. Coding Conventions
+## 3. コーディング規約
 
-* Prefer TypeScript (`.tsx`/`.ts`) for new components and utilities.
-* Co-locate component-specific styles in the same folder as the component when
-  practical.
+*   新しいコンポーネントやユーティリティには、TypeScript（`.tsx`/`.ts`）を優先して使用してください。
+*   可能な場合は、コンポーネント固有のスタイルをコンポーネントと同じフォルダに配置してください。
 
-## 4. Useful Commands Recap
+## 4. 便利なコマンドのまとめ
 
-| Command            | Purpose                                            |
-| ------------------ | -------------------------------------------------- |
-| `npm run dev`      | Start the Next.js dev server with HMR.             |
-| `npm run lint`     | Run ESLint checks.                                 |
-| `npm run test`     | Execute the test suite (if present).               |
-| `npm run build`    | **Production build – _do not run during agent sessions_** |
+| コマンド | 目的 |
+|---|---|
+| `npm run dev` | HMRを使用してNext.js開発サーバーを起動します。 |
+| `npm run lint` | ESLintチェックを実行します。 |
+| `npm run test` | テストスイートを実行します（存在する場合）。 |
+| `npm run build` | **本番ビルド – _エージェントセッション中は実行しないでください_** |
 
 ---
 
-Following these practices ensures that the agent-assisted development workflow stays
-fast and dependable.  When in doubt, restart the dev server rather than running the
-production build.
+これらのプラクティスに従うことで、エージェント支援の開発ワークフローが高速で信頼性の高いものになります。不明な点がある場合は、本番ビルドを実行するのではなく、開発サーバーを再起動してください。
